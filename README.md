@@ -55,3 +55,90 @@ Headers:
   X-RapidAPI-Key: YOUR_API_KEY
   X-RapidAPI-Host: moviesdatabase.p.rapidapi.com
 
+📥 Typical Response Format
+Most endpoints return a JSON object with a results array. Paginated results include page, next, and entries.
+
+Example Response
+json
+Copy
+Edit
+{
+  "results": [
+    {
+      "id": "tt1234567",
+      "titleText": { "text": "Example Movie" },
+      "primaryImage": { "url": "https://..." },
+      "titleType": { "text": "movie" },
+      "releaseDate": { "year": 2024 },
+      "ratingsSummary": { "averageRating": 8.2, "numVotes": 9324 },
+      "genres": { "genres": [{ "text": "Action" }] }
+    }
+  ],
+  "page": 1,
+  "next": "/titles?page=2"
+}
+Tip: Use the info parameter (e.g., mini_info, base_info, rating, extendedCast, etc.) to customize response size and detail.
+
+## Authentication
+To use the MoviesDatabase API:
+
+Subscribe on RapidAPI.
+
+Add these headers to all requests:
+
+http
+Copy
+Edit
+X-RapidAPI-Key: YOUR_API_KEY
+X-RapidAPI-Host: moviesdatabase.p.rapidapi.com
+X-RapidAPI-Key: Your RapidAPI API key.
+
+X-RapidAPI-Host: Always set to moviesdatabase.p.rapidapi.com.
+
+## Error Handling
+Status Code	Meaning	Action to Take
+401	Unauthorized	Check API key or subscription status.
+403	Forbidden	Subscription plan may not allow this request.
+404	Not Found	The resource (ID, route) doesn't exist.
+429	Too Many Requests	Rate limit exceeded. Use backoff and retry later.
+500	Internal Server Error	Temporary error on API provider's side.
+
+Example Error Handling in JS/TS
+ts
+Copy
+Edit
+try {
+  const response = await fetch(URL, { headers });
+  if (!response.ok) throw new Error(`Status: ${response.status}`);
+  const data = await response.json();
+  return data;
+} catch (error) {
+  console.error("API Error:", error.message);
+}
+
+
+## Usage Limits and Best Practices
+🚦 Usage Limits
+Free/BASIC plan: Limited daily/monthly requests.
+
+Rate Limit: RapidAPI enforces rate limits by plan level.
+
+Hitting your limit returns a 429 Too Many Requests error.
+
+✔️ Best Practices
+Use pagination (limit, page) to avoid large payloads.
+
+Use mini_info when you only need basic title info.
+
+Cache responses from static endpoints (e.g., genres, top-rated).
+
+Retry failed requests after short delay if you hit rate limits.
+
+Avoid redundant queries by using titles-by-ids for batch fetches.
+
+🧠 Credits & Support
+API by: Adriano Massimo
+
+Support the creator: BuyMeACoffee
+
+Docs: RapidAPI Docs
