@@ -59,9 +59,6 @@ Headers:
 Most endpoints return a JSON object with a results array. Paginated results include page, next, and entries.
 
 Example Response
-json
-Copy
-Edit
 {
   "results": [
     {
@@ -77,7 +74,8 @@ Edit
   "page": 1,
   "next": "/titles?page=2"
 }
-Tip: Use the info parameter (e.g., mini_info, base_info, rating, extendedCast, etc.) to customize response size and detail.
+
+
 
 ## Authentication
 To use the MoviesDatabase API:
@@ -85,15 +83,9 @@ To use the MoviesDatabase API:
 Subscribe on RapidAPI.
 
 Add these headers to all requests:
-
-http
-Copy
-Edit
 X-RapidAPI-Key: YOUR_API_KEY
 X-RapidAPI-Host: moviesdatabase.p.rapidapi.com
-X-RapidAPI-Key: Your RapidAPI API key.
 
-X-RapidAPI-Host: Always set to moviesdatabase.p.rapidapi.com.
 
 ## Error Handling
 Status Code	Meaning	Action to Take
@@ -103,18 +95,6 @@ Status Code	Meaning	Action to Take
 429	Too Many Requests	Rate limit exceeded. Use backoff and retry later.
 500	Internal Server Error	Temporary error on API provider's side.
 
-Example Error Handling in JS/TS
-ts
-Copy
-Edit
-try {
-  const response = await fetch(URL, { headers });
-  if (!response.ok) throw new Error(`Status: ${response.status}`);
-  const data = await response.json();
-  return data;
-} catch (error) {
-  console.error("API Error:", error.message);
-}
 
 
 ## Usage Limits and Best Practices
