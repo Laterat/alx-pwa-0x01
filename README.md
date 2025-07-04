@@ -76,7 +76,6 @@ Example Response
 }
 
 
-
 ## Authentication
 To use the MoviesDatabase API:
 
@@ -122,3 +121,4 @@ API by: Adriano Massimo
 Support the creator: BuyMeACoffee
 
 Docs: RapidAPI Docs
+
