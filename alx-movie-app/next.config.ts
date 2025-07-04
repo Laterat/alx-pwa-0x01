@@ -1,8 +1,10 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
   reactStrictMode: true,
+  images: {
+    domains: ['m.media-amazon.com'], // ✅ Allow external image domain
+  },
 };
 
 export default nextConfig;
