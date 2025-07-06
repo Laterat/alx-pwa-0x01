@@ -1,4 +1,4 @@
-## alx-project-0x14
+## alx-pwa-0x01
 
 # MoviesDatabase API Integration
 
@@ -21,6 +21,7 @@ The MoviesDatabase API provides access to:
 ## Available Endpoints
 
 ### Titles
+
 - `GET /titles` — Get a list of titles with optional filters (genre, year, titleType, etc.).
 - `GET /titles/{id}` — Get detailed info for a specific title by IMDb ID.
 - `GET /titles/{id}/ratings` — Get ratings summary (averageRating, numVotes) for a title.
@@ -32,15 +33,18 @@ The MoviesDatabase API provides access to:
 - `GET /titles/episode/{id}` — Get episode details by IMDb ID.
 
 ### Search
+
 - `GET /titles/search/keyword/{keyword}` — Search titles by keyword.
 - `GET /titles/search/title/{title}` — Search by exact or partial title.
 - `GET /titles/search/akas/{aka}` — Search by AKA (alternate title).
 
 ### Actors
+
 - `GET /actors` — List actors (with pagination).
 - `GET /actors/{id}` — Get details for a specific actor by IMDb ID.
 
 ### Utils
+
 - `GET /title/utils/titleType` — Get available title types.
 - `GET /title/utils/genres` — Get available genres.
 - `GET /title/utils/lists` — Get available predefined lists (top rated, most popular, etc.).
@@ -122,3 +126,4 @@ Support the creator: BuyMeACoffee
 
 Docs: RapidAPI Docs
 
+```
